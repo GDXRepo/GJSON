@@ -39,24 +39,24 @@ class GJSON {
         }
     }
     
-    func number(_ path: String) -> NSNumber {
-        return nullable(path) as! NSNumber
+    func number(_ path: String) -> NSNumber? {
+        return nullable(path) as? NSNumber
     }
     
-    func string(_ path: String) -> String {
-        return nullable(path) as! String
+    func string(_ path: String) -> String? {
+        return nullable(path) as? String
     }
     
-    func bool(_ path: String) -> Bool {
-        return nullable(path) as! Bool
+    func bool(_ path: String) -> Bool? {
+        return nullable(path) as? Bool
     }
     
-    func array(_ path: String) -> [Any] {
-        return nullable(path) as! [Any]
+    func array(_ path: String) -> [Any]? {
+        return nullable(path) as? [Any]
     }
     
-    func object(_ path: String) -> [String: Any] {
-        return nullable(path) as! [String: Any]
+    func object(_ path: String) -> [String: Any]? {
+        return nullable(path) as? [String: Any]
     }
     
     func nullable(_ path: String) -> Any? {
