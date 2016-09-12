@@ -1,3 +1,13 @@
+//
+//  GJSON.swift
+//  Swampoff
+//
+//  Created by Георгий Малюков on 12.09.16.
+//  Copyright © 2016 Mr.Swampoff. All rights reserved.
+//
+
+import UIKit
+
 enum GJSONTypes {
     case number
     case string
@@ -31,11 +41,11 @@ class GJSON {
         }
     }
     
-    func num(_ path: String) throws -> NSNumber {
+    func number(_ path: String) throws -> NSNumber {
         return nullable(path) as! NSNumber
     }
     
-    func str(_ path: String) throws -> String {
+    func string(_ path: String) throws -> String {
         return nullable(path) as! String
     }
     
@@ -43,11 +53,11 @@ class GJSON {
         return nullable(path) as! Bool
     }
     
-    func arr(_ path: String) throws -> [Any] {
+    func array(_ path: String) throws -> [Any] {
         return nullable(path) as! [Any]
     }
     
-    func obj(_ path: String) throws -> [String: Any] {
+    func object(_ path: String) throws -> [String: Any] {
         return nullable(path) as! [String: Any]
     }
     
