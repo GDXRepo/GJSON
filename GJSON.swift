@@ -40,26 +40,26 @@ class GJSON {
     }
     
     func number(_ path: String) -> NSNumber? {
-        return nullable(path) as? NSNumber
+        return any(path) as? NSNumber
     }
     
     func string(_ path: String) -> String? {
-        return nullable(path) as? String
+        return any(path) as? String
     }
     
     func bool(_ path: String) -> Bool? {
-        return nullable(path) as? Bool
+        return any(path) as? Bool
     }
     
     func array(_ path: String) -> [Any]? {
-        return nullable(path) as? [Any]
+        return any(path) as? [Any]
     }
     
     func object(_ path: String) -> [String: Any]? {
-        return nullable(path) as? [String: Any]
+        return any(path) as? [String: Any]
     }
     
-    func nullable(_ path: String) -> Any? {
+    func any(_ path: String) -> Any? {
         return GJSON.path(path, json: json)
     }
     
