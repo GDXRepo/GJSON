@@ -10,7 +10,7 @@ This is not a library, you can just copy & paste my code inside your project. Pl
 * `GJSON` uses simple string paths (components must be separated with slash `/`) to extract values from valid JSON objects.
 * The first option is to extract optional value of `Any?` type. It does not produce any errors or exceptions during parsing, if there is no value that you've requested - you will just receive `nil` as a result and small log message containing information about what was happened.
 * Also you can extract non-optional strictly typed values. This couple of methods can throw an error because they're using an explicit strict cast with `!`.
-* As a special feature you can extract a concrete item from an internal JSON array by specifying string component prefixed by `:`, for example: `Result/Items/:5` (index starts from zero).
+* As a special feature you can extract a concrete item from an internal JSON array by specifying string component prefixed by `:`, for example: `Result/Items/:2` (index starts from zero, instead of `2` you can print any index inside json array's bounds).
 
 # Quick Guide
 
