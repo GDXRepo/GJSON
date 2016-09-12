@@ -64,7 +64,7 @@ class App {
   static func parseJSON(_ json: Any?) {
     let parser = GJSON(json)
     let glossary = GJSON(parser.nullable("glossary"))
-    print(try! glossary.number("items/:0/Id"))
+    print(try! glossary.number("items/:0/Id")) // extract the "Id" property of the first item of an array
     print(try! glossary.string("GlossList/GlossEntry/ID"))
     print(try! glossary.bool("GlossList/GlossEntry/SortDesc"))
     print(GJSON.path("glossary/GlossList/GlossEntry/GlossSee", json: json) as! String)
