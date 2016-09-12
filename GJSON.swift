@@ -1,11 +1,3 @@
-//
-//  GJSON.swift
-//  Swampoff
-//
-//  Created by Георгий Малюков on 12.09.16.
-//  Copyright © 2016 Mr.Swampoff. All rights reserved.
-//
-
 import UIKit
 
 enum GJSONTypes {
@@ -18,9 +10,12 @@ enum GJSONTypes {
 
 class GJSON {
     
-    let json: Any?
+    let json: Any
     
-    init(_ json: Any?) {
+    init?(_ json: Any) {
+        if !(json is [Any]) || !(json is [String: Any]) {
+            return nil
+        }
         self.json = json
     }
     
@@ -41,23 +36,23 @@ class GJSON {
         }
     }
     
-    func number(_ path: String) throws -> NSNumber {
+    func number(_ path: String) -> NSNumber {
         return nullable(path) as! NSNumber
     }
     
-    func string(_ path: String) throws -> String {
+    func string(_ path: String) -> String {
         return nullable(path) as! String
     }
     
-    func bool(_ path: String) throws -> Bool {
+    func bool(_ path: String) -> Bool {
         return nullable(path) as! Bool
     }
     
-    func array(_ path: String) throws -> [Any] {
+    func array(_ path: String) -> [Any] {
         return nullable(path) as! [Any]
     }
     
-    func object(_ path: String) throws -> [String: Any] {
+    func object(_ path: String) -> [String: Any] {
         return nullable(path) as! [String: Any]
     }
     
