@@ -13,7 +13,10 @@ class GJSON {
     let json: Any
     
     init?(_ json: Any) {
-        if !(json is [Any]) || !(json is [String: Any]) {
+        let asArray = json as? [Any]
+        let asDict = json as? [String: Any]
+        
+        if asArray == nil && asDict == nil {
             return nil
         }
         self.json = json
