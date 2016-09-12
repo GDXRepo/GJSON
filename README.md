@@ -15,7 +15,7 @@ This is not a library, you can just copy & paste my code inside your project. Pl
 # Quick Guide
 
 * Please note that path strings are **case sensitive**.
-* Use `try!` with `number`, `string`, `bool`, `array` or `object` instance-level methods of the `GJSON` class to get strictly typed values as a result. These method will raise an exception if JSON code does not contain specified value types at specified paths. Alternatively you can use `valueAt(_, of:)` method which also will return strictly typed value or raise an exception if any error occured during parsing.
+* Use `number`, `string`, `bool`, `array` or `object` instance-level methods of the `GJSON` class to get strictly typed values as a result. These method will crash if JSON code does not contain specified value types at specified paths. Alternatively you can use `valueAt(_, of:)` method which also will return strictly typed value or throw an exception if any error occured during parsing.
 * Use `nullable` instance-level method or `GJSON.path(_, json:)` class-level method to extract value of type `Any?` without using `try` instructions. Just don't forget to unwrap them when it's necessary.
 * Use special `myJson/jsonArrayItem/:3` index specifying to extract the concrete item of an array.
 
@@ -64,9 +64,9 @@ class App {
   static func parseJSON(_ json: Any?) {
     let parser = GJSON(json)
     let glossary = GJSON(parser.nullable("glossary"))
-    print(try! glossary.number("items/:0/Id")) // extract the "Id" property of the first item of an array
-    print(try! glossary.string("GlossList/GlossEntry/ID"))
-    print(try! glossary.bool("GlossList/GlossEntry/SortDesc"))
+    print(glossary.number("items/:0/Id")) // extract the "Id" property of the first item of an array
+    print(glossary.string("GlossList/GlossEntry/ID"))
+    print(glossary.bool("GlossList/GlossEntry/SortDesc"))
     print(GJSON.path("glossary/GlossList/GlossEntry/GlossSee", json: json) as! String)
   }
 }
