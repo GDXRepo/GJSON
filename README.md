@@ -7,10 +7,10 @@ We all need to use JSON structs in our projects, but unfortunately there is no a
 This is not a library, you can just copy & paste my code inside your project. Please feel free to use & modify this code for your projects' requirements.
 
 # Usage
-* `GJSON` uses simple string paths (components must be separated with slash `/`) to extract values from valid JSON objects. You can extract values in two different ways:
-* Optional object of `Any?` type. It does not produce any errors or exceptions during parsing, if there is no value that you've requested - you will just receive `nil` as a result and small log message containing information about what was happened.
-* Non-optional strictly typed object. These methods can throw an error because they're using an explicit strict cast with `!`.
-* Also you can extract a concrete item of internal JSON array by specifying special string component prefixed by `:`, for example: `Result/Items/:5` (index starts from zero).
+* `GJSON` uses simple string paths (components must be separated with slash `/`) to extract values from valid JSON objects.
+* The first option is to extract optional value of `Any?` type. It does not produce any errors or exceptions during parsing, if there is no value that you've requested - you will just receive `nil` as a result and small log message containing information about what was happened.
+* Also you can extract non-optional strictly typed values. This couple of methods can throw an error because they're using an explicit strict cast with `!`.
+* As a special feature you can extract a concrete item from an internal JSON array by specifying string component prefixed by `:`, for example: `Result/Items/:5` (index starts from zero).
 
 # Quick Guide
 
