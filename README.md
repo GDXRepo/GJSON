@@ -29,7 +29,7 @@ Let's take this JSON code on some server address `https://myserver.com/json`:
 		"items": [
 			{ "Id": 5, "text": "some item" },
 			{ "Id": 28, "text": "some another item" }
-		]
+		],
 		"GlossList": {
 			"GlossEntry": {
 				"ID": "SGML",
