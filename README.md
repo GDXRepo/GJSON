@@ -16,7 +16,7 @@ This is not a library, you can just copy & paste my code inside your project. Pl
 
 * Please note that path strings are **case sensitive**.
 * Use `number`, `string`, `bool`, `array` or `object` instance-level methods of the `GJSON` class to get strictly typed values as a result. These method will crash if JSON code does not contain specified value types at specified paths. Alternatively you can use `valueAt(_, of:)` method which also will return strictly typed value or throw an exception if any error occured during parsing.
-* Use `nullable` instance-level method or `GJSON.path(_, json:)` class-level method to extract value of type `Any?` without using `try` instructions. Just don't forget to unwrap them when it's necessary.
+* Use `nullable` instance-level method or `GJSON.path(_, json:)` class-level method to extract value of type `Any?`. Just don't forget to unwrap them when it's necessary.
 * Use special `myJson/jsonArrayItem/:3` index specifying to extract the concrete item of an array.
 
 # Example
