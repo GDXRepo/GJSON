@@ -63,11 +63,14 @@ class GJSON {
         return GJSON.path(path, json: json)
     }
     
-    static func path(_ path: String, json: Any) -> Any? {
-        let comps = path.trimmingCharacters(in: CharacterSet(charactersIn: "/")).components(separatedBy: "/")
+    static func path(_ path: String?, json: Any) -> Any? {
+        let comps = path?.trimmingCharacters(in: CharacterSet(charactersIn: "/")).components(separatedBy: "/")
         var current: Any? = json
-        
-        for (i, comp) in comps.enumerated() {
+        // check for root path (empty or nil string)
+        if path == nil || path?.characters.count == 0 {
+            return current
+        }
+        for (i, comp) in comps!.enumerated() {
             // check special syntax
             if comp.hasPrefix(":") {
                 // get array item index
@@ -93,7 +96,7 @@ class GJSON {
                     return nil
                 }
             }
-            else if i < comps.count { // we're still inside our components?
+            else if i < comps!.count { // we're still inside our components?
                 if let unwrapped = current as? [String: Any] { // we can proceed for dictionary?
                     current = unwrapped[comp] // unwrap current item and repeat
                 }
